@@ -8,11 +8,11 @@ def test_tax_at_seven_percent():
 
 
 def test_over_limit_true():
-    assert (1500 > 1000) is True # noqa: PLR0133
+    assert (1500 > 1000) is True  # noqa: PLR0133
 
 
 def test_over_limit_false():
-    assert (500 > 1000) is False # noqa: PLR0133
+    assert (500 > 1000) is False  # noqa: PLR0133
 
 
 def test_type_of_string():
