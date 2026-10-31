@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 iniconfig==2.3.1
 packaging==26.3
 pluggy==1.7.0
 Pygments==2.21.0
 pytest==9.2.0
 ruff==0.17.3
+=======
+pytest
+black
+flake8
+>>>>>>> 9cfa4b2e3dbf8e81908cefcb0b9782c0b77603fa

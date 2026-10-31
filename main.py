@@ -1,4 +1,5 @@
 # main.py
+<<<<<<< HEAD
 # Author: [Malika Karieva]
 
 from chatbot import SupportChatbot
@@ -34,3 +35,25 @@ while user_message != "quit":
     user_message = input("You: ")
 
 print(f"Messages in this conversation: {len(bot.history)}")
+=======
+
+# add sample inputs
+from business_rules import (
+    apply_discount,
+    calculate_total,
+    get_approval_tier,
+    requires_review,
+)
+
+price, qty = 450.00, 3
+
+total = calculate_total(price, qty)
+review = requires_review(total)
+tier = get_approval_tier(total)
+discounted_price = apply_discount(price, 10)
+
+print(f"Total: {total:.2f}")
+print(f"Requires Review: {review}")
+print(f"Approval Tier: {tier}")
+print(f"10% discount: {discounted_price:.2f}")
+>>>>>>> 9cfa4b2e3dbf8e81908cefcb0b9782c0b77603fa

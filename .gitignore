@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 .venv/
+=======
+venv/
+.venv/
+.DS_Store
+*.pyc
+>>>>>>> 9cfa4b2e3dbf8e81908cefcb0b9782c0b77603fa
 __pycache__/
