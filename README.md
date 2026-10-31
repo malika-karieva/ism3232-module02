@@ -1,0 +1,4 @@
+# README.md
+
+Sweet Bakery Order Assistant
+This assistant helps bakery customers check the status of their orders using a custom lookup tool. The assistant relies on mock rule-based logic and dictionary lookups rather than a real AI model to respond to messages. Requests involving order cancellations or refunds are handed off to a human manager because the automated system cannot process financial transactions or modify active kitchen tickets. If this assistant used real customer data, a bug or security flaw could expose sensitive personal details like customer phone numbers, home addresses, and payment history to unauthorized users. Additionally, real-time data synchronization errors could cause outdated order statuses to be displayed, leading to customer confusion and delayed pickups.

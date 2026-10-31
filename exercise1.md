@@ -1,0 +1,6 @@
+The two classes are: OrderLookup and SupportChatbot
+One object of each class in main.py: order_tool and bot
+Every attribute of SupportChatbot: name, instructions, order_tool, history
+Every method of OrderLookup: __init__, find_order_id, find_status
+The line in chatbot.py that is the composition: self.order_tool = order_tool
+In bot.respond("hello"), self is: bot
