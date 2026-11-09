@@ -1,11 +1,19 @@
+from mock_model import MockModel
 from my_assistant import BakeryAssistant
 from my_tool import OrderTracker
 
 
+class SilentModel:
+    """A model that never has an answer. It stands in for Ollama being switched off."""
+
+    def reply(self, instructions, history):
+        return None
+
+
 def make_assistant():
-    """Create a new assistant for testing."""
+    """Build a fresh assistant with its own tool for each test."""
     tracker = OrderTracker({"101": "ready for pickup", "103": "out for delivery"})
-    return BakeryAssistant("Sam", "Be polite.", tracker)
+    return BakeryAssistant("Sam", "Be polite.", tracker, MockModel())
 
 
 def test_order_status_question_uses_the_tool():

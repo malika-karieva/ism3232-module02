@@ -5,13 +5,14 @@ HANDOFF_WORDS = ["cancel", "refund", "change"]
 
 
 class BakeryAssistant:
-    """Assistant for Sweet Bakery orders."""
+    """Assistant for Sweet Bakery orders. Rules handle order status and handoffs. A model handles the rest."""
 
-    def __init__(self, name, instructions, order_tracker):
-        """Set up the assistant with rules, tool, and history."""
+    def __init__(self, name, instructions, order_tracker, model):
+        """Set up the assistant with rules, tool, model and history."""
         self.name = name
         self.instructions = instructions
         self.order_tracker = order_tracker
+        self.model = model
         self.history = []
 
     def respond(self, user_message):
@@ -28,9 +29,17 @@ class BakeryAssistant:
             return "I can't modify or cancel orders. I'm passing you to the manager."
         if "status" in text or "order" in text or "ready" in text:
             return self.status_reply(user_message)
+        return self.model_reply()
         if "hello" in text or "hi" in text:
             return f"Hello! I'm {self.name}. Ask me about your order status using your order number."
         return "I'm not sure how to help with that. I can check order statuses."
+
+    def model_reply(self):
+        """Ask the model for a reply. Give a safe answer if the model has none."""
+        reply = self.model.reply(self.instructions, self.history)
+        if reply is None:
+            return "Sorry, I can't answer that right now. Please try again in a moment."
+        return reply
 
     def needs_human(self, text):
         """Check if request needs a human manager."""
